@@ -2,7 +2,7 @@
   <nav class="site-nav">
     <div class="site-nav-left">
       <router-link v-if="!isHome && blog.logo" class="site-nav-logo" to="/">
-        <img :src="blog.logo" :alt="blog.title" />
+        <img :src="$withBase(blog.logo)" :alt="blog.title" />
       </router-link >
       <router-link v-if="!isHome && !blog.logo" class="site-nav-logo" to="/">
         {{ blog.title }}

@@ -3,7 +3,7 @@
     <div class="inner">
       <div class="site-header-content" v-if="header.showCover">
         <h1 class="site-title">
-          <img v-if="header.logo" class="site-logo" :src="header.logo" :alt="header.title" />
+          <img v-if="header.logo" class="site-logo" :src="$withBase(header.logo)" :alt="header.title" />
           <span v-else>{{ header.title }}</span>
         </h1>
         <h2 class="site-description" v-if="header.description">{{ header.description }}</h2>
@@ -21,7 +21,7 @@
       backgroundStyle () {
         if (this.header.coverImage) {
           return {
-            'background-image': `url(${this.header.coverImage})`
+            'background-image': `url(${this.$withBase(this.header.coverImage)})`
           }
         }
 

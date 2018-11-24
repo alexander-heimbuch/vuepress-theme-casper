@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Casper Theme',
   description: 'Ghosts default theme for Vuepress',
-  base: '',
+  base: '/vuepress-theme-casper/',
   head: [
     ['link', { rel: 'icon', href: '/favicon.png' }]
   ],

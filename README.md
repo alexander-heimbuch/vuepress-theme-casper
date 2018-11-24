@@ -18,7 +18,7 @@ Adapt your vuepress config `config.js`:
 module.exports = {
   title: 'Theme Title',
   description: 'Theme description',
-  base: '',
+  base: '/',
   theme: 'casper',
   head: [
     ['link', { rel: 'icon', href: '/favicon.png' }]

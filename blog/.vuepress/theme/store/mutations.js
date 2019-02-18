@@ -19,8 +19,11 @@ export default {
   },
 
   [types.ROUTER_PARAMS]: (state, params) => {
+    const postDate = post => new Date(post.frontmatter.date);
+
     state.params = params
     state.posts = posts(state)
+                    .sort((a, b) => postDate(b) - postDate(a))
     state.nav = navigation(state)
     state.type = type(state)
     state.header = header(state)

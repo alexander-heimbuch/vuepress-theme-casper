@@ -19,7 +19,7 @@ export default {
   },
 
   [types.ROUTER_PARAMS]: (state, params) => {
-    const postDate = post => new Date(post.frontmatter.date);
+    const postDate = post => new Date(post.publish);
 
     state.params = params
     state.posts = posts(state)

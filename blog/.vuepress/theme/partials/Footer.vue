@@ -7,6 +7,7 @@
           :key="index"
           :href="item.external ? item.link : $withBase(item.link)"
           :target="item.external ? '_blank' : '_top'"
+          rel="noopener"
         >{{ item.text }}</a>
       </nav>
     </div>

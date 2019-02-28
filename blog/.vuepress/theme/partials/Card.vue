@@ -1,10 +1,10 @@
 <template>
   <article class="post-card" :class="{ 'no-image': !post.image }">
-    <a v-if="post.image" class="post-card-image-link" :href="$withBase(post.path)">
+    <a v-if="post.image" class="post-card-image-link" :href="$withBase(post.path)" aria-label="link to post">
       <div class="post-card-image" :style="imageStyle"></div>
     </a>
     <div class="post-card-content">
-        <a class="post-card-content-link" :href="$withBase(post.path)">
+        <a class="post-card-content-link" :href="$withBase(post.path)" aria-label="link to post">
           <header class="post-card-header">
             <span v-if="post.tags" class="post-card-tags">{{ post.tags.join(' ') }}</span>
             <h2 class="post-card-title">{{ post.title }}</h2>

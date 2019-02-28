@@ -22,8 +22,7 @@ export default {
     const postDate = post => new Date(post.publish);
 
     state.params = params
-    state.posts = posts(state)
-                    .sort((a, b) => postDate(b) - postDate(a))
+    state.posts = posts(state).sort((a, b) => postDate(b) - postDate(a))
     state.nav = navigation(state)
     state.type = type(state)
     state.header = header(state)

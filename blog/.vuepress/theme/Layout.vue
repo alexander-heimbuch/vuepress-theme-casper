@@ -1,7 +1,7 @@
 <template>
   <div class="site-wrapper">
     <site-header :blog="blog" :header="header">
-      <navigation />
+      <site-navigation slot="header"></site-navigation>
     </site-header>
     <component :is="content"></component>
     <site-footer />
@@ -15,12 +15,12 @@ import Post from './layouts/Post'
 import Page from './layouts/Page'
 import Posts from './layouts/Posts'
 
-import Navigation from './partials/Navigation'
 import SiteHeader from './partials/Header'
 import SiteFooter from './partials/Footer'
+import SiteNavigation from './partials/Navigation'
 
 export default {
-  components: { Page, Posts, Post, SiteFooter, SiteHeader, Navigation },
+  components: { Page, Posts, Post, SiteFooter, SiteHeader, SiteNavigation },
   methods: {
     ...mapActions(['updateSite', 'updatePage', 'updateParams']),
       updateLayoutClass () {
@@ -59,6 +59,7 @@ export default {
     this.updateSite(this.$site)
     this.updateParams(this.$route.params)
     this.updateLayoutClass()
+
   }
 }
 </script>

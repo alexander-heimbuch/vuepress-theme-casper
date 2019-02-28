@@ -8,7 +8,7 @@
         </h1>
         <h2 class="site-description" v-if="header.description">{{ header.description }}</h2>
       </div>
-      <slot></slot>
+      <slot name="header"></slot>
     </div>
   </header>
 </template>

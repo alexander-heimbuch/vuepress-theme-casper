@@ -7,7 +7,7 @@
       <router-link v-if="!isHome && !blog.logo" class="site-nav-logo" to="/">
         {{ blog.title }}
       </router-link >
-      <ul class="nav" v-if="nav">
+      <ul class="nav" v-if="nav" role="menu">
         <li v-for="(item, index) in nav" role="menuitem" :key="index">
           <router-link :class="{ active: item.active }" :to="item.link">{{ item.text }}</router-link>
         </li>

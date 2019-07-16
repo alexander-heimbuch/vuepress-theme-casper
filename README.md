@@ -2,6 +2,10 @@
 
 Ghosts default theme [Casper](https://github.com/TryGhost/Casper) for Vuepress.
 
+## Create with Stackbit
+
+[![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?theme=https://github.com/stackbithq/vuepress-theme-casper)
+
 ## Installation
 
 Install the npm package:
@@ -30,8 +34,8 @@ module.exports = {
     }
   },
   themeConfig: {
-    cover: 'cover.jpg',
-    logo: '/logo.png',
+    cover: '/images/cover.jpg',
+    logo: '/images/logo.png',
     nav: [{
       text: 'Home',
       link: '/'

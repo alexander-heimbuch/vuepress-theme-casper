@@ -1,0 +1,127 @@
+stackbitVersion: ~0.2.0
+ssgName: custom
+buildCommand: "npm run build"
+pageLayoutKey: type
+publishDir: dist
+pagesDir: blog
+staticDir: blog/.vuepress/public
+uploadDir: images
+dataDir: blog/.vuepress/data
+models:
+  config:
+    type: data
+    label: Config
+    file: config.json
+    fields:
+      - name: title
+        type: string
+        label: Title
+        required: true
+      - name: description
+        type: text
+        label: Description
+        description: Text shown under the main logo
+      - name: base
+        type: string
+        label: Base
+        description: Base path under which the site will be served
+        default: "/vuepress-theme-casper/"
+      - name: themeConfig
+        type: object
+        label: Theme Config
+        fields:
+          - name: cover
+            type: image
+            label: Cover
+            description: Cover image shown on the home page
+          - name: logo
+            type: image
+            label: Logo
+            description: Logo image shown on the home page
+          - name: nav
+            type: list
+            label: Top Navigation Menu
+            items:
+              type: nav_item
+          - name: footer
+            type: list
+            label: Bottom Navigation Menu
+            items:
+              type: nav_item
+          - name: social
+            type: object
+            label: Social
+            fields:
+              - name: github
+                type: string
+                label: Github Link
+              - name: twitter
+                type: string
+                label: Twitter Link
+  nav_item:
+    type: object
+    label: Navigation Item
+    labelField: text
+    fields:
+      - name: text
+        type: string
+        label: Label
+        required: true
+      - name: link
+        type: string
+        label: Link
+        required: true
+        description: "Link of the navigation item, e.g.: /posts or https://facebook.com"
+  home:
+    type: page
+    label: Home
+    layout: home
+    singleInstance: true
+    hideContent: true
+    file: index.md
+    fields: []
+  page:
+    type: page
+    label: Page
+    layout: page
+    match: "**/*.md"
+    exclude: "{index.md,posts/**/*,.vuewpress/**/*}"
+    fields:
+      - name: title
+        type: string
+        label: Title
+        required: true
+  post:
+    type: page
+    label: Post
+    folder: posts
+    match: "**/*.md"
+    layout: post
+    fields:
+      - name: title
+        type: string
+        label: Title
+        required: true
+      - name: image
+        type: image
+        label: Image
+      - name: publish
+        type: date
+        label: Date
+        required: true
+      - name: tags
+        type: list
+        label: Tags
+        items:
+          type: string
+      - name: categories
+        type: list
+        label: categories
+        items:
+          type: enum
+          options:
+            - dexter
+            - futurama
+      - name: readingTime
+        type: string
+        label: Reading Time

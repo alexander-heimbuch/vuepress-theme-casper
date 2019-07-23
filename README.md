@@ -4,7 +4,7 @@ Ghosts default theme [Casper](https://github.com/TryGhost/Casper) for Vuepress.
 
 ## Create with Stackbit
 
-[![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?theme=https://github.com/stackbithq/vuepress-theme-casper)
+[![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?theme=https://github.com/alexander-heimbuch/vuepress-theme-casper)
 
 ## Installation
 

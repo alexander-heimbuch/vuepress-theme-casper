@@ -101,7 +101,7 @@ export default {
   }
 
   .site-main {
-    z-index: 100;
+    z-index: 90;
     flex-grow: 1;
   }
 

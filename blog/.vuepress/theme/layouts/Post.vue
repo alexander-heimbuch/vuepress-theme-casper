@@ -247,13 +247,14 @@
     margin: 1.5em auto;
     max-width: 100%;
   }
+  /*
   @media (max-width: 1040px) {
     .post-full-content img,
     .post-full-content video {
       width: 100%;
     }
   }
-
+  */
 
   /* Full bleed images (#full)
   Super neat trick courtesy of @JoelDrapper

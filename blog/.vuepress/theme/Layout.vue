@@ -64,9 +64,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
-  @import '../../../node_modules/casper/assets/built/global.css';
-  @import '../../../node_modules/casper/assets/built/screen.css';
+<style>
+  @import './styles/global.css';
+  @import './styles/screen.css';
 
   /* Code section
   /* ---------------------------------------------------------- */

@@ -15,24 +15,3 @@ export default {
   props: ['type', 'url']
 }
 </script>
-
-<style lang="scss">
-  .social-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 10px;
-    color: #fff;
-    opacity: 0.8;
-  }
-
-  .social-link:hover {
-    opacity: 1;
-  }
-
-  .social-link svg {
-    height: 1.8rem;
-    fill: #fff;
-  }
-</style>

@@ -12,8 +12,6 @@ Install the npm package:
 
 ```bash
 $ npm i vuepress-theme-casper --save
-# or
-$ yarn add vuepress-theme-casper
 ```
 
 Adapt your vuepress config `config.js`:

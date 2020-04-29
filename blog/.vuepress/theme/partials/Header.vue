@@ -47,8 +47,11 @@ export default {
   },
   methods: {
     handleScroll: function () {
+      var titleElement = document.getElementsByClassName("post-full-title")[0];
+      var titlePosition = titleElement.getBoundingClientRect().top;
+      var titleHeight = titleElement.clientHeight;
       var scroll = window.scrollY;
-      this.navActive = scroll > 80;
+      this.navActive = scroll > titlePosition + titleHeight;
     }
   },
   computed: {
@@ -95,7 +98,7 @@ export default {
         "no-image": !headerImage,
         "site-header-background": this.isArchive || this.isHome,
         "site-nav-main": this.isPage || this.isPost,
-        "nav-post-title-active": this.navActive
+        "nav-post-title-active": this.navActive && !this.isHome
       };
     }
   }

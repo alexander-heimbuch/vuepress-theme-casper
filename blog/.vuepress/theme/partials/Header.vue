@@ -34,6 +34,23 @@ import { mapGetters } from "vuex";
 
 export default {
   props: ["header"],
+  data: function () {
+    return {
+      navActive: false
+    }
+  },
+  created () {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll: function () {
+      var scroll = window.scrollY;
+      this.navActive = scroll > 80;
+    }
+  },
   computed: {
     ...mapGetters(["type"]),
 
@@ -77,7 +94,8 @@ export default {
         "responsive-header-img": headerImage,
         "no-image": !headerImage,
         "site-header-background": this.isArchive || this.isHome,
-        "site-nav-main": this.isPage || this.isPost
+        "site-nav-main": this.isPage || this.isPost,
+        "nav-post-title-active": this.navActive
       };
     }
   }

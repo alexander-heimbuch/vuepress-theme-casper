@@ -1,5 +1,5 @@
 <template>
-  <nav class="site-nav">
+  <nav class="site-nav" :class="siteNavFixed">
     <div class="site-nav-left-wrapper">
       <div class="site-nav-left">
         <router-link v-if="!isHome && blog.logo" class="site-nav-logo" to="/">
@@ -16,6 +16,7 @@
               }}</router-link>
             </li>
           </ul>
+          <span class="nav-post-title" v-if="isPost">{{ current.title }}</span>
         </div>
       </div>
     </div>
@@ -40,9 +41,12 @@ import SocialLink from "./SocialLink";
 export default {
   components: { SocialLink },
   computed: {
-    ...mapGetters(["blog", "type", "social", "nav"]),
+    ...mapGetters(["blog", "type", "social", "nav", "current"]),
     isHome() {
       return this.type === "home";
+    },
+    isPost() {
+      return this.type === "post";
     }
   }
 };

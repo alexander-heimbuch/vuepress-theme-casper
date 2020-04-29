@@ -98,7 +98,7 @@ export default {
         "no-image": !headerImage,
         "site-header-background": this.isArchive || this.isHome,
         "site-nav-main": this.isPage || this.isPost,
-        "nav-post-title-active": this.navActive && !this.isHome
+        "nav-post-title-active": this.navActive && !this.isHome && !this.isPage
       };
     }
   }

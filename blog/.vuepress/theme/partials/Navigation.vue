@@ -39,6 +39,9 @@ import { mapGetters } from "vuex";
 import SocialLink from "./SocialLink";
 
 export default {
+  props: {
+    'siteNavFixed': String
+  },
   components: { SocialLink },
   computed: {
     ...mapGetters(["blog", "type", "social", "nav", "current"]),

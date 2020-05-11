@@ -13,7 +13,18 @@
 
           <div class="post-full-byline">
             <section class="post-full-byline-content">
+              <ul class="author-list" v-if="author">
+                <li class="author-list-item">
+                  <div class="author-name-tooltip">
+                    {{ author.name }}
+                  </div>
+                  <a class="static-avatar" :href="author.link">
+                    <img class="author-profile-image" :src="author.gravatar" :alt="author.name">
+                  </a>
+                </li>
+              </ul>
               <section class="post-full-byline-meta">
+                <h4 v-if="author"><a :href="author.link">{{ author.name }}</a></h4>
                 <div class="byline-meta-content">
                   <time
                     v-if="datetime"
@@ -50,7 +61,7 @@ import { head, kebabCase } from "lodash";
 
 export default {
   computed: {
-    ...mapGetters(["current"]),
+    ...mapGetters(["current", "blog", "author"]),
 
     datetime() {
       return (
@@ -77,7 +88,7 @@ export default {
       return {
         "background-image": `url(${this.$withBase(this.current.image)})`
       };
-    }
+    },
   },
   methods: {
     kebabCase,

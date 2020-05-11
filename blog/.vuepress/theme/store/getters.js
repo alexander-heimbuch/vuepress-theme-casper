@@ -15,5 +15,7 @@ export default {
   footer: getOr([], 'footer'),
   nav: getOr([], 'nav'),
 
-  social: getOr([], 'social')
+  social: getOr([], 'social'),
+
+  author: getOr(null, 'author')
 }

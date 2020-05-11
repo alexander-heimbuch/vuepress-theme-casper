@@ -13,7 +13,18 @@
 
           <div class="post-full-byline">
             <section class="post-full-byline-content">
+              <ul class="author-list" v-if="current.author">
+                <li class="author-list-item">
+                  <div class="author-name-tooltip">
+                    {{ current.author.name }}
+                  </div>
+                  <a class="static-avatar" :href="current.author.link">
+                    <img class="author-profile-image" :src="gravatar" :alt="current.author.name">
+                  </a>
+                </li>
+              </ul>
               <section class="post-full-byline-meta">
+                <h4 v-if="current.author"><a :href="current.author.link">{{ current.author.name }}</a></h4>
                 <div class="byline-meta-content">
                   <time
                     v-if="datetime"
@@ -50,7 +61,7 @@ import { head, kebabCase } from "lodash";
 
 export default {
   computed: {
-    ...mapGetters(["current"]),
+    ...mapGetters(["current", "blog"]),
 
     datetime() {
       return (
@@ -77,6 +88,16 @@ export default {
       return {
         "background-image": `url(${this.$withBase(this.current.image)})`
       };
+    },
+
+    gravatar () {
+      if (this.current.author.gravatar) {
+        return '//www.gravatar.com/avatar/' + this.current.author.gravatar + '?s=250&d=mm&r=x'
+      } else if (this.blog.defaultAuthorGravatar) {
+        return '//www.gravatar.com/avatar/' + this.blog.defaultAuthorGravatar + '?s=250&d=mm&r=x'
+      } else {
+        return '//www.gravatar.com/avatar/2bfa103a13c88b5ffd26da6f982f11df?s=250&d=mm&r=x'
+      }
     }
   },
   methods: {

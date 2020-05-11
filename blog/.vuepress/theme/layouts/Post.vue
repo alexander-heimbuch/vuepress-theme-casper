@@ -13,7 +13,7 @@
 
           <div class="post-full-byline">
             <section class="post-full-byline-content">
-              <ul class="author-list" v-if="current.author">
+              <ul class="author-list" v-if="current.author && gravatar">
                 <li class="author-list-item">
                   <div class="author-name-tooltip">
                     {{ current.author.name }}
@@ -96,7 +96,7 @@ export default {
       } else if (this.blog.defaultAuthorGravatar) {
         return '//www.gravatar.com/avatar/' + this.blog.defaultAuthorGravatar + '?s=250&d=mm&r=x'
       } else {
-        return '//www.gravatar.com/avatar/2bfa103a13c88b5ffd26da6f982f11df?s=250&d=mm&r=x'
+        return false
       }
     }
   },

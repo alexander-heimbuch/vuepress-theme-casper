@@ -9,6 +9,9 @@ tags:
 categories:
   - dexter
 readingTime: 9 Minutes
+author:
+  link: /author/test
+  name: test
 ---
 
 The way I see it, every life is a pile of good things and bad things.…hey.…the good things don't always soften the bad things; but vice-versa the bad things don't necessarily spoil the good things and make them unimportant. Sorry, checking all the water in this area; there's an escaped fish.
@@ -54,3 +57,26 @@ All I've got to do is pass as an ordinary human being. Simple. What could possib
 I am the Doctor, and you are the Daleks! You know when grown-ups tell you 'everything's going to be fine' and you think they're probably lying to make you feel better? I'm nobody's taxi service; I'm not gonna be there to catch you every time you feel like jumping out of a spaceship.
 
 You hit me with a cricket bat. You hit me with a cricket bat. It's art! A statement on modern society, 'Oh Ain't Modern Society Awful?'! They're not aliens, they're Earth…liens! Sorry, checking all the water in this area; there's an escaped fish.
+
+```php
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $user = new User([
+            'email' => 'test@example.com',
+            'name' => 'testuser',
+            'password' => '123456',
+        ]);
+        $user->save();
+        $this->token = auth()->login($user);
+
+        Mailaddress::create([
+            'address' => 'test@example.com'
+        ]);
+        Mailaddress::create([
+            'address' => 'test2@example.com',
+            'company_id' => 1
+        ]);
+    }
+```

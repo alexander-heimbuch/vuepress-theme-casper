@@ -14,7 +14,18 @@
           </section>
         </a>
         <footer class="post-card-meta">
+          <ul class="author-list-item" v-if="post.author">
+            <li class="author-list-item">
+              <div class="author-name-tooltip">
+                {{ post.author.name }}
+              </div>
+              <a class="static-avatar" :href="post.author.link">
+                <img class="author-profile-image" :src="authorImg" :alt="post.author.name">
+              </a>
+            </li>
+          </ul>
           <div class="post-card-byline-content">
+            <span v-if="post.author"><a :href="post.author.link">{{ post.author.name }}</a></span>
             <span class="post-card-byline-date">
               <time v-if="datetime" :datetime="datetime">{{ localeDate }}</time> <span v-if=" post.readingTime" class="bull">&bull;</span> {{ post.readingTime }}</span>
             </span>
@@ -28,7 +39,7 @@
   import striptags from 'striptags'
 
   export default {
-    props: ['post', 'large'],
+    props: ['post', 'large', 'blog'],
     computed: {
       imageStyle () {
         return {
@@ -43,6 +54,15 @@
       localeDate () {
         return this.post.publish && new Date(this.post.publish).toLocaleDateString()
       },
+      authorImg () {
+        if (this.post.img) {
+          return this.post.img
+        } else if (this.blog.defaultAuthorImg) {
+          return this.blog.defaultAuthorImg
+        } else {
+          return '//www.gravatar.com/avatar/2bfa103a13c88b5ffd26da6f982f11df?s=250&d=mm&r=x'
+        }
+      }
     },
     methods: {
       striptags

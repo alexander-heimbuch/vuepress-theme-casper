@@ -1,7 +1,7 @@
 <template>
-  <nav class="site-nav">
-    <div class="site-nav-left-wrapper">
-      <div class="site-nav-left">
+  <nav class="site-nav" style="overflow: visible;">
+    <div class="site-nav-left-wrapper" style="height: 100%">
+      <div class="site-nav-left" style="margin-top: auto;">
         <router-link v-if="!isHome && blog.logo" class="site-nav-logo" to="/">
           <img :src="$withBase(blog.logo)" :alt="blog.title" />
         </router-link>
@@ -20,6 +20,7 @@
       </div>
     </div>
     <div class="site-nav-right">
+      <SearchBox v-if="blog.search" />
       <div class="social-links">
         <social-link
           v-for="(channel, index) in social"
@@ -36,9 +37,10 @@
 import { mapGetters } from "vuex";
 
 import SocialLink from "./SocialLink";
+import SearchBox from '@SearchBox'
 
 export default {
-  components: { SocialLink },
+  components: { SocialLink, SearchBox },
   computed: {
     ...mapGetters(["blog", "type", "social", "nav"]),
     isHome() {

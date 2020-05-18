@@ -1,6 +1,6 @@
 <template>
-  <div class="site-wrapper">
-    <site-header id="site-header" :blog="blog" :header="header">
+  <div class="site-wrapper" v-scroll="handleScroll">
+    <site-header id="site-header" ref="siteHeader" :blog="blog" :header="header">
       <site-navigation slot="header"></site-navigation>
     </site-header>
     <component :is="content"></component>
@@ -15,7 +15,6 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
-import { throttle } from "lodash"
 
 import Post from './layouts/Post'
 import Page from './layouts/Page'
@@ -32,22 +31,16 @@ export default {
       fixedNav: ''
     }
   },
-  created () {
-    window.addEventListener('scroll', throttle(this.handleScroll, 1000));
-  },
-  destroyed () {
-    window.removeEventListener('scroll', throttle(this.handleScroll, 1000));
-  },
   methods: {
     ...mapActions(['updateSite', 'updatePage', 'updateParams']),
     updateLayoutClass () {
       this.$el.parentNode.className = `${this.type}-template`
     },
     handleScroll: function () {
-      var scroll = window.scrollY;
-      var headerElement = document.getElementById('site-header');
-      var headerPosition = headerElement.getBoundingClientRect().top;
-      var headerHeight = headerElement.clientHeight;
+      const scroll = window.scrollY;
+      const headerElement = this.$refs.siteHeader;
+      const headerPosition = headerElement.$el.clientTop;
+      const headerHeight = headerElement.$el.clientHeight;
       this.fixedNav = scroll > headerPosition + headerHeight ? 'fixed-nav-active' : '';
     }
   },

@@ -1,5 +1,5 @@
 <template>
-  <header :class="headerClasses">
+  <header :class="headerClasses" v-scroll="handleScroll">
     <div v-if="isArchive" class="outer site-nav-main">
       <div class="inner">
         <slot name="header"></slot>
@@ -40,19 +40,15 @@ export default {
       navActive: false
     }
   },
-  created () {
-    window.addEventListener('scroll', throttle(this.handleScroll, 1000));
-  },
-  destroyed () {
-    window.removeEventListener('scroll', throttle(this.handleScroll, 1000));
-  },
   methods: {
     handleScroll: function () {
-      var titleElement = document.getElementsByClassName("post-full-title")[0];
-      var titlePosition = titleElement.getBoundingClientRect().top;
-      var titleHeight = titleElement.clientHeight;
-      var scroll = window.scrollY;
-      this.navActive = scroll > titlePosition + titleHeight;
+      const titleElement = document.getElementsByClassName("post-full-title")[0];
+      if(titleElement) {
+        const titlePosition = titleElement.getBoundingClientRect().top;
+        const titleHeight = titleElement.clientHeight;
+        const scroll = window.scrollY;
+        this.navActive = scroll > titlePosition + titleHeight;
+      }
     }
   },
   computed: {

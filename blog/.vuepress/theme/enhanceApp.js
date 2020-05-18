@@ -6,6 +6,8 @@ import types from './store/types'
 
 import Layout from './Layout'
 
+import { throttle } from "lodash"
+
 export default ({
   Vue,
   options,
@@ -38,4 +40,15 @@ export default ({
   })
 
   options.store = store
+
+  Vue.directive('scroll', {
+    inserted: function (el, binding) {
+      let f = function (evt) {
+        if (binding.value(evt, el)) {
+          window.removeEventListener('scroll', throttle(f, 1000))
+        }
+      }
+      window.addEventListener('scroll', f)
+    }
+  })
 }

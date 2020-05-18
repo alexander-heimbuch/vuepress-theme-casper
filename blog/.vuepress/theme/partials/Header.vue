@@ -31,6 +31,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
+import { throttle } from "lodash";
 
 export default {
   props: ["header"],
@@ -40,10 +41,10 @@ export default {
     }
   },
   created () {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', throttle(this.handleScroll, 1000));
   },
   destroyed () {
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('scroll', throttle(this.handleScroll, 1000));
   },
   methods: {
     handleScroll: function () {

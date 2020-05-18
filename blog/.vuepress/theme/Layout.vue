@@ -15,6 +15,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import { throttle } from "lodash"
 
 import Post from './layouts/Post'
 import Page from './layouts/Page'
@@ -32,10 +33,10 @@ export default {
     }
   },
   created () {
-    window.addEventListener('scroll', this.handleScroll);
+    window.addEventListener('scroll', throttle(this.handleScroll, 1000));
   },
   destroyed () {
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('scroll', throttle(this.handleScroll, 1000));
   },
   methods: {
     ...mapActions(['updateSite', 'updatePage', 'updateParams']),

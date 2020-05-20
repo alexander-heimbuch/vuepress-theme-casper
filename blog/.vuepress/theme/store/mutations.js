@@ -1,7 +1,7 @@
 import { pick, get } from 'lodash'
 
 import types from './types'
-import { formatPages, formatPage, type, header, posts, footer, social, navigation } from './utils'
+import { formatPages, formatPage, type, header, posts, footer, social, navigation, author } from './utils'
 
 export default {
   [types.SITE_UPDATE]: (state, site) => {
@@ -12,6 +12,7 @@ export default {
     state.index = formatPages(get(site, 'pages', []))
     state.footer = footer(state)
     state.social = social(site)
+    state.author = author(state)
   },
 
   [types.PAGE_UPDATE]: (state, page) => {

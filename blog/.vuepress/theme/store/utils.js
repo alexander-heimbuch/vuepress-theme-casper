@@ -137,3 +137,13 @@ export const header = state => {
       }
   }
 }
+
+export const author = state => {
+  if(state.current.author) {
+    var author = state.current.author;
+    const hash = state.current.author.gravatar ? state.current.author.gravatar : state.blog.defaultAuthorGravatar;
+    author.gravatar = '//www.gravatar.com/avatar/' + hash + '?s=250&d=mm&r=x';
+    return author;
+  }
+  return null;
+}

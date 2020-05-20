@@ -14,7 +14,7 @@
           </section>
         </a>
         <footer class="post-card-meta">
-          <ul class="author-list" v-if="post.author && gravatar">
+          <ul class="author-list" v-if="post.author">
             <li class="author-list-item">
               <div class="author-name-tooltip">
                 {{ post.author.name }}
@@ -55,13 +55,8 @@
         return this.post.publish && new Date(this.post.publish).toLocaleDateString()
       },
       gravatar () {
-        if (this.post.author.gravatar) {
-          return '//www.gravatar.com/avatar/' + this.post.author.gravatar + '?s=250&d=mm&r=x'
-        } else if (this.blog.defaultAuthorGravatar) {
-          return '//www.gravatar.com/avatar/' + this.blog.defaultAuthorGravatar + '?s=250&d=mm&r=x'
-        } else {
-          return false
-        }
+          const hash = this.post.author.gravatar ? this.post.author.gravatar : this.blog.defaultAuthorGravatar
+          return '//www.gravatar.com/avatar/' + hash + '?s=250&d=mm&r=x'
       }
     },
     methods: {

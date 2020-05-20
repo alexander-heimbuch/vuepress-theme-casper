@@ -48,7 +48,7 @@ export default ({
           window.removeEventListener('scroll')
         }
       }
-      window.addEventListener('scroll', throttle(f, 200))
+      window.addEventListener('scroll', throttle(f, 200), { passive: true })
     }
   })
 }

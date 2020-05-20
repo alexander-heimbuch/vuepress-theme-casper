@@ -88,12 +88,15 @@ tags:
   - thanks to the Internet
 categories:
   - futurama
+  - dexter
 readingTime: 10 Minutes
+author:
+  link: /category/dexter
+  name: Dexter
+  gravatar: 2bfa103a13c88b5ffd26da6f982f11df
 ---
 ```
 
 The post intro uses the `<!-- more -->` tag.
 
 ## Caveats
-
-* For simplicity this theme doesn't support multiple authors

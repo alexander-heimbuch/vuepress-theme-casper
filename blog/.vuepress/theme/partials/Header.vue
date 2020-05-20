@@ -37,7 +37,7 @@ export default {
   props: ["header"],
   data: function () {
     return {
-      navActive: false
+      navTitleActive: false
     }
   },
   methods: {
@@ -47,7 +47,7 @@ export default {
         const titlePosition = titleElement.getBoundingClientRect().top;
         const titleHeight = titleElement.clientHeight;
         const scroll = window.scrollY;
-        this.navActive = scroll > titlePosition + titleHeight;
+        this.navTitleActive = scroll > titlePosition + titleHeight;
       }
     }
   },
@@ -95,7 +95,7 @@ export default {
         "no-image": !headerImage,
         "site-header-background": this.isArchive || this.isHome,
         "site-nav-main": this.isPage || this.isPost,
-        "nav-post-title-active": this.navActive && !this.isHome && !this.isPage
+        "nav-post-title-active": this.navTitleActive && !this.isHome && !this.isPage
       };
     }
   }

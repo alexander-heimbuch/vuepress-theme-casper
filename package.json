@@ -24,7 +24,6 @@
   },
   "devDependencies": {
     "casper": "git@github.com:TryGhost/Casper.git",
-    "lodash": "^4.17.15",
     "vue": "2.6.11",
     "vuepress": "1.4.0"
   },

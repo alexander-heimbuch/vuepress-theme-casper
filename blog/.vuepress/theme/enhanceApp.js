@@ -45,10 +45,10 @@ export default ({
     inserted: function (el, binding) {
       let f = function (evt) {
         if (binding.value(evt, el)) {
-          window.removeEventListener('scroll', throttle(f, 1000))
+          window.removeEventListener('scroll')
         }
       }
-      window.addEventListener('scroll', f)
+      window.addEventListener('scroll', throttle(f, 200))
     }
   })
 }

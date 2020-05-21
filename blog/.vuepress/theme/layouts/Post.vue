@@ -13,18 +13,18 @@
 
           <div class="post-full-byline">
             <section class="post-full-byline-content">
-              <ul class="author-list" v-if="author">
+              <ul class="author-list" v-if="current.author.name">
                 <li class="author-list-item">
                   <div class="author-name-tooltip">
-                    {{ author.name }}
+                    {{ current.author.name }}
                   </div>
-                  <a class="static-avatar" :href="author.link">
-                    <img class="author-profile-image" :src="author.gravatar" :alt="author.name">
+                  <a class="static-avatar" :href="current.author.link">
+                    <img class="author-profile-image" :src="authorImage(current.author.gravatar)" :alt="current.author.name">
                   </a>
                 </li>
               </ul>
               <section class="post-full-byline-meta">
-                <h4 v-if="author"><a :href="author.link">{{ author.name }}</a></h4>
+                <h4 v-if="current.author.name"><a :href="current.author.link">{{ current.author.name }}</a></h4>
                 <div class="byline-meta-content">
                   <time
                     v-if="datetime"
@@ -58,10 +58,11 @@
 import striptags from "striptags";
 import { mapGetters } from "vuex";
 import { head, kebabCase } from "lodash";
+import { authorImage } from '../store/utils'
 
 export default {
   computed: {
-    ...mapGetters(["current", "blog", "author"]),
+    ...mapGetters(["current"]),
 
     datetime() {
       return (
@@ -92,7 +93,8 @@ export default {
   },
   methods: {
     kebabCase,
-    striptags
+    striptags,
+    authorImage
   }
 };
 </script>

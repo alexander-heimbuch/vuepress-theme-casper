@@ -1,26 +1,25 @@
 import { pick, get } from 'lodash'
 
 import types from './types'
-import { formatPages, formatPage, type, header, posts, footer, social, navigation, author } from './utils'
+import { formatPages, formatPage, type, header, posts, footer, social, navigation } from './utils'
 
 export default {
   [types.SITE_UPDATE]: (state, site) => {
     const themeConfig = get(site, 'themeConfig', {})
-    const siteConfig = pick(site, ['title', 'description', 'base'])
+    const siteConfig = pick(site, ['title', 'description', 'base', 'defaultAuthor'])
 
     state.blog = Object.assign({}, siteConfig, themeConfig)
-    state.index = formatPages(get(site, 'pages', []))
+    state.index = formatPages(state.blog, get(site, 'pages', []))
     state.footer = footer(state)
     state.social = social(site)
-    state.author = author(state)
   },
 
   [types.PAGE_UPDATE]: (state, page) => {
-    state.current = formatPage(page)
+    state.current = formatPage(state.blog, page)
   },
 
   [types.ROUTER_PARAMS]: (state, params) => {
-    const postDate = post => new Date(post.publish);
+    const postDate = post => new Date(post.publish)
 
     state.params = params
     state.posts = posts(state).sort((a, b) => postDate(b) - postDate(a))

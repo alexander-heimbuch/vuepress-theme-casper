@@ -67,6 +67,8 @@ export default {
 <style>
   @import './styles/global.css';
   @import './styles/screen.css';
+  
+  @import '~prismjs/themes/prism-tomorrow.css';
 
   /* Code section
   /* ---------------------------------------------------------- */

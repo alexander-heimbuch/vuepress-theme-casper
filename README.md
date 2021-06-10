@@ -81,7 +81,8 @@ module.exports = {
       link: "https://alexander.heimbu.ch",
       name: "Default Author",
       gravatar: "2bfa103a13c88b5ffd26da6f982f11df"
-    }
+    },
+    search: false
   }
 };
 ```

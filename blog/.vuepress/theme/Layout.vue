@@ -67,11 +67,16 @@ export default {
 <style>
   @import './styles/global.css';
   @import './styles/screen.css';
+  
+  @import '~prismjs/themes/prism-tomorrow.css';
 
   /* Code section
   /* ---------------------------------------------------------- */
   div[class^="language-"] {
     min-width: 100%;
     max-width: 100%;
+  }
+  .search-box input {
+    width: 20rem;
   }
 </style>

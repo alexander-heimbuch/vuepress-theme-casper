@@ -76,4 +76,7 @@ export default {
     min-width: 100%;
     max-width: 100%;
   }
+  .search-box input {
+    width: 20rem;
+  }
 </style>

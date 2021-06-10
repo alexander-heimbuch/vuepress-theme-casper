@@ -68,7 +68,9 @@ module.exports = {
       xing: 'https://xing.de',
       instagram: 'https://instagram.com',
       linkedin: 'https://linkedin.com'
-    }
+    },
+
+    search: false
   }
 }
 ```

@@ -40,6 +40,7 @@
     "social": {
       "github": "https://github.com/alexander-heimbuch/vuepress-theme-casper",
       "twitter": "https://twitter.com/zusatzstoff"
-    }
+    },
+    "search": true
   }
 }

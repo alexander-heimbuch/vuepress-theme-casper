@@ -5,41 +5,58 @@
   "themeConfig": {
     "cover": "/images/cover.jpg",
     "logo": "/images/logo.png",
-    "nav": [{
-      "text": "Home",
-      "link": "/"
-    }, {
-      "text": "Posts",
-      "link": "/posts"
-    }, {
-      "text": "Futurama",
-      "link": "/category/futurama"
-    }, {
-      "text": "Dexter",
-      "link": "/category/dexter"
-    }, {
-      "text": "Media",
-      "link": "/media.html"
-    },{
-      "text": "About",
-      "link": "/about.html"
-    }],
-    "footer": [{
-      "text": "Latest Posts",
-      "link": "/posts"
-    }, {
-      "text": "Facebook",
-      "link": "https://facebook.com/"
-    }, {
-      "text": "Twitter",
-      "link": "https://twitter.com"
-    }, {
-      "text": "Github",
-      "link": "https://github.com/vuepress-theme-casper"
-    }],
+    "nav": [
+      {
+        "text": "Home",
+        "link": "/"
+      },
+      {
+        "text": "Posts",
+        "link": "/posts"
+      },
+      {
+        "text": "Futurama",
+        "link": "/category/futurama"
+      },
+      {
+        "text": "Dexter",
+        "link": "/category/dexter"
+      },
+      {
+        "text": "Media",
+        "link": "/media.html"
+      },
+      {
+        "text": "About",
+        "link": "/about.html"
+      }
+    ],
+    "footer": [
+      {
+        "text": "Latest Posts",
+        "link": "/posts"
+      },
+      {
+        "text": "Facebook",
+        "link": "https://facebook.com/"
+      },
+      {
+        "text": "Twitter",
+        "link": "https://twitter.com"
+      },
+      {
+        "text": "Github",
+        "link": "https://github.com/vuepress-theme-casper"
+      }
+    ],
     "social": {
       "github": "https://github.com/alexander-heimbuch/vuepress-theme-casper",
       "twitter": "https://twitter.com/zusatzstoff"
+    },
+    "defaultAuthor": {
+      "link": "https://alexander.heimbu.ch",
+      "name": "Default Author",
+      "gravatar": "2bfa103a13c88b5ffd26da6f982f11df"
     },
     "search": true
   }

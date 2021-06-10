@@ -9,6 +9,10 @@ tags:
 categories:
   - dexter
 readingTime: 9 Minutes
+author:
+  link: /category/dexter
+  name: Dexter
+  gravatar: 205e460b479e2e5b48aec07710c08d50
 ---
 
 The way I see it, every life is a pile of good things and bad things.…hey.…the good things don't always soften the bad things; but vice-versa the bad things don't necessarily spoil the good things and make them unimportant. Sorry, checking all the water in this area; there's an escaped fish.

@@ -21,5 +21,6 @@ export default {
   type: null,
   posts: [],
   footer: [],
-  social: []
+  social: [],
+  author: null
 }

@@ -14,7 +14,18 @@
           </section>
         </a>
         <footer class="post-card-meta">
+          <ul class="author-list" v-if="post.author.name">
+            <li class="author-list-item">
+              <div class="author-name-tooltip">
+                {{ post.author.name }}
+              </div>
+              <a class="static-avatar" :href="post.author.link">
+                <img class="author-profile-image" :src="authorImage(post.author.gravatar)" :alt="post.author.name">
+              </a>
+            </li>
+          </ul>
           <div class="post-card-byline-content">
+            <span v-if="post.author.name"><a :href="post.author.link">{{ post.author.name }}</a></span>
             <span class="post-card-byline-date">
               <time v-if="datetime" :datetime="datetime">{{ localeDate }}</time> <span v-if=" post.readingTime" class="bull">&bull;</span> {{ post.readingTime }}</span>
             </span>
@@ -26,6 +37,7 @@
 
 <script>
   import striptags from 'striptags'
+  import { authorImage } from '../store/utils'
 
   export default {
     props: ['post', 'large'],
@@ -42,10 +54,11 @@
 
       localeDate () {
         return this.post.publish && new Date(this.post.publish).toLocaleDateString()
-      },
+      }
     },
     methods: {
-      striptags
+      striptags,
+      authorImage
     }
   }
 </script>

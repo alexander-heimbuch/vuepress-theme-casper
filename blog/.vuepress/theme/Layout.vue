@@ -55,8 +55,8 @@ export default {
     }
   },
   mounted () {
-    this.updatePage(this.$page)
     this.updateSite(this.$site)
+    this.updatePage(this.$page)
     this.updateParams(this.$route.params)
     this.updateLayoutClass()
 

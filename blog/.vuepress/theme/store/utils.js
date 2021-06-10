@@ -1,17 +1,22 @@
 import { get } from 'lodash'
-import { map, toLower, getOr } from 'lodash/fp'
+import { toLower, getOr, curry } from 'lodash/fp'
 
-const pluckData = page => ({
+const pluckData = curry((blog, page) => ({
   ...page,
   ...page.frontmatter,
   publish: page.frontmatter.publish ? new Date(page.frontmatter.publish).getTime() : null,
   tags: get(page.frontmatter, 'tags', []).map(toLower),
-  categories: get(page.frontmatter, 'categories', []).map(toLower)
-})
+  categories: get(page.frontmatter, 'categories', []).map(toLower),
+  author: {
+    link: get(page.frontmatter, 'author.link') || get(blog, 'defaultAuthor.link'),
+    name: get(page.frontmatter, 'author.name') || get(blog, 'defaultAuthor.name'),
+    gravatar: get(page.frontmatter, 'author.gravatar') || get(blog, 'defaultAuthor.gravatar')
+  }
+}))
 
 const isExternal = url => /^https?:\/\//i.test(url)
 
-export const formatPages = map(pluckData)
+export const formatPages = (blog, data = []) => data.map(pluckData(blog))
 
 export const formatPage = pluckData
 
@@ -63,7 +68,6 @@ export const navigation = state =>
       active: state.route.path.split('/').join('') === nav.link.split('/').join(''),
       external: isExternal(nav.link)
     }))
-
 
 export const social = site => {
   const channels = get(site, 'themeConfig.social', {})
@@ -137,3 +141,5 @@ export const header = state => {
       }
   }
 }
+
+export const authorImage = hash => '//www.gravatar.com/avatar/' + hash + '?s=250&d=mm&r=x'
